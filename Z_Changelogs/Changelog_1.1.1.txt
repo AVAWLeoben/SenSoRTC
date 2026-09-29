@@ -1,0 +1,28 @@
+Changelog — SenSoRTC 1.1.1
+Release date: 29 September 2026
+Previous version: SenSoRTC 1.1.0
+Added
+- Configurable belt-width mapping for MODBUS and UDP nozzle controllers.
+  - Separate left and right margins define how many physical nozzles lie outside the conveyor.
+  - The full camera detection width is proportionally mapped onto the remaining usable nozzles.
+  - Nozzles outside the configured belt width remain inactive during normal sorting.
+- Live nozzle-mapping controls in the GUI.
+  - Added Left off and Right off controls.
+  - Displays the active physical nozzle range and the number of usable nozzles.
+  - Settings can be adjusted while the system is running, without restarting the nozzle-control process.
+- Separate margin configurations for the 80-nozzle MODBUS and 128-nozzle UDP systems.
+Changed
+- Nozzle mapping now occurs before the hardware-specific output mapping.
+- UDP retains its existing 16-channel wiring permutation after belt-width mapping.
+- MODBUS retains its inverted output logic (False = ON, True = OFF).
+- Nozzle-margin settings are shared between the GUI and the corresponding controller process.
+Compatibility
+- Zero margins preserve the previous nozzle mapping. Setting both Left off and Right off to 0 bypasses the new proportional mapping.
+- Existing serial/Arduino nozzle control is unaffected.
+- Existing MODBUS startup test-shot behavior is preserved: DO_TESTSHOT = True. The test shot operates independently of the camera-based belt-width mapping.
+Validation and limitations
+- Margin values are constrained so that at least one physical nozzle remains usable.
+- Proportional mapping assumes that camera left-to-right corresponds to physical nozzle left-to-right. This orientation must be verified on the installed hardware.
+- Physical ejection alignment should be checked after changing the margins.
+Files affected: SenSoRTC.py, UI_LAYER.py, NOZZLE_CONTROL_LAYER.py, and runtime_settings.yaml.
+Release summary: SenSoRTC 1.1.1 introduces runtime-adjustable conveyor-to-nozzle alignment for UDP and MODBUS systems while retaining the original mapping when both margins are zero.

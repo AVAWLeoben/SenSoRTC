@@ -1,0 +1,12 @@
+CAMERA_TYPE: Basler
+CONNECTION_TYPE: MODBUS
+FPS: 20
+MODEL_PATH: /home/admin/Desktop/SenSoRTC_1.1.0/Models/GreenPlast/GreenPlast_YOLO11N_Set5.pt
+MODEL_VERBOSE: true
+MVIMPACT_NIR_SETTINGS_PATH: mvimpact_nir_camera_settings.yaml
+NIR_CLASSIFIER_KIND: SAM_PLACEHOLDER
+NIR_CLASSIFIER_PATH: ''
+PFS_PATH: /home/admin/Desktop/SenSoRTC_1.1.0/Camera_Settings/X_TESTING/DWRL/Kamerasettings_DWRL_oben_standard_ET1000_GAIN12_1280_RGB.pfs
+SCALEABLE_UI: false
+USB_CAMERA_SETTINGS_PATH: sensor_tc_camera_settings.yaml
+VIDEO_PATH: C:/Users/GKoinig/Desktop/SenSoRTC-development/SenSoRTC-development/Camera_Settings/X_TESTING/simulated_camera_video/output_pizza.mp4
